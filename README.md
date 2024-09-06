@@ -4,7 +4,7 @@
 | --- | --- |
 | **Department** | Web Development |
 | **Reports to** | Software Development Manager |
-| **Time Allocation** | 30 mins |
+| **Time Allocation** | 1h |
 
 ## Overview
 
