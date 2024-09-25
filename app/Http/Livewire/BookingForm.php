@@ -30,6 +30,11 @@ class BookingForm extends Component
         return view('livewire.booking-form');
     }
 
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function createBooking()
     {
         $this->validate();
