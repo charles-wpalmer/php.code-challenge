@@ -7,20 +7,15 @@ use Livewire\Component;
 
 class BookingForm extends Component
 {
-    public $title;
-    public $start_time;
-    public $end_time;
+    public string $title;
+    public string $start_time;
+    public string $end_time;
 
-    protected $rules = [
+    protected array $rules = [
         'title' => 'required|string|max:255',
         'start_time' => 'required|date|after_or_equal:now',
         'end_time' => 'required|date|after:start_time',
     ];
-
-    public function mount()
-    {
-        $this->bookings = Booking::all();
-    }
 
     public function createBooking()
     {
