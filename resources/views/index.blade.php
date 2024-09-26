@@ -12,12 +12,13 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased  h-screen grid bg-slate-100 lg:items-center">
+<body class="grid h-screen antialiased bg-slate-100 lg:items-center">
 
     <livewire:booking-form />
 
+    @livewireScripts
+    @stack('scripts')
 
-@livewireScripts
 </body>
 
 </html>
