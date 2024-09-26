@@ -57,14 +57,12 @@
         </form>
     </div>
     @push('scripts')
-    <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        flatpickr("#start_time", {});
-        flatpickr("#end_time", {});
-    });
+        <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            flatpickr("#start_time", {});
+            flatpickr("#end_time", {});
+        });
 
-</script>
-
-@endpush
+        </script>
+    @endpush
 </div>
-
