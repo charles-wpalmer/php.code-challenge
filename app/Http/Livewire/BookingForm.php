@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Booking;
+use Illuminate\Support\Collection;
 use Livewire\Component;
 
 class BookingForm extends Component
@@ -11,11 +12,28 @@ class BookingForm extends Component
     public string $start_time;
     public string $end_time;
 
+    public Collection $bookings;
+
     protected array $rules = [
         'title' => 'required|string|max:255',
         'start_time' => 'required|date|after_or_equal:now',
         'end_time' => 'required|date|after:start_time',
     ];
+
+    public function mount()
+    {
+        $this->bookings = Booking::all();
+    }
+
+    public function render()
+    {
+        return view('livewire.booking-form');
+    }
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
 
     public function createBooking()
     {
@@ -28,7 +46,7 @@ class BookingForm extends Component
         ]);
 
         $this->resetFields();
-        $this->redirect('/');
+        $this->bookings = Booking::all();
     }
 
     public function resetFields()
@@ -36,10 +54,5 @@ class BookingForm extends Component
         $this->title = '';
         $this->start_time = '';
         $this->end_time = '';
-    }
-
-    public function render()
-    {
-        return view('livewire.booking-form');
     }
 }
